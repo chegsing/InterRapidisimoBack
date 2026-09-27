@@ -8,6 +8,18 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AngularPolicy", policy =>
+    {
+        policy
+            .WithOrigins("http://localhost:4200")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
     ?? throw new InvalidOperationException("Falta configurar ConnectionStrings:DefaultConnection.");
 var databasePassword = builder.Configuration["ConnectionStrings:Password"];
@@ -67,7 +79,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseAuthorization();
-
+// CORS debe estar antes de MapControllers
+app.UseCors("AngularPolicy");
 app.MapControllers();
 
 app.Run();
