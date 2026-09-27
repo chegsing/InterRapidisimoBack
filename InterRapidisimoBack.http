@@ -1,6 +1,54 @@
 @InterRapidisimoBack_HostAddress = http://localhost:5071
+@studentId = 1
 
-GET {{InterRapidisimoBack_HostAddress}}/weatherforecast/
+GET {{InterRapidisimoBack_HostAddress}}/api/Catalogos/materias
 Accept: application/json
 
 ###
+
+GET {{InterRapidisimoBack_HostAddress}}/api/Catalogos/programas-academicos
+Accept: application/json
+
+###
+
+POST {{InterRapidisimoBack_HostAddress}}/api/Estudiantes
+Content-Type: application/json
+
+{
+	"identificationNumber": "S1001",
+	"firstName": "Laura",
+	"lastName": "Garcia",
+	"email": "laura@example.com",
+	"phone": "3001000001",
+	"academicProgramId": 1,
+	"subjectIds": [1, 3, 5]
+}
+
+###
+
+GET {{InterRapidisimoBack_HostAddress}}/api/Estudiantes
+Accept: application/json
+
+###
+
+GET {{InterRapidisimoBack_HostAddress}}/api/Estudiantes/{{studentId}}/companeros
+Accept: application/json
+
+###
+
+PUT {{InterRapidisimoBack_HostAddress}}/api/Estudiantes/{{studentId}}
+Content-Type: application/json
+
+{
+	"identificationNumber": "S1001",
+	"firstName": "Laura",
+	"lastName": "Garcia",
+	"email": "laura@example.com",
+	"phone": "3001000001",
+	"academicProgramId": 1,
+	"subjectIds": [1, 3, 5]
+}
+
+###
+
+DELETE {{InterRapidisimoBack_HostAddress}}/api/Estudiantes/{{studentId}}

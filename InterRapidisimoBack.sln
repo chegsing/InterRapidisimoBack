@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterRapidisimoBack", "InterRapidisimoBack.csproj", "{E0ED5380-6DD7-4E66-9B7F-56A646589C21}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterRapidisimoBack.Tests", "tests\InterRapidisimoBack.Tests\InterRapidisimoBack.Tests.csproj", "{27DA1894-C11F-49A8-8F15-1CCF2065238D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{E0ED5380-6DD7-4E66-9B7F-56A646589C21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0ED5380-6DD7-4E66-9B7F-56A646589C21}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0ED5380-6DD7-4E66-9B7F-56A646589C21}.Release|Any CPU.Build.0 = Release|Any CPU
+				{27DA1894-C11F-49A8-8F15-1CCF2065238D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+				{27DA1894-C11F-49A8-8F15-1CCF2065238D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+				{27DA1894-C11F-49A8-8F15-1CCF2065238D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+				{27DA1894-C11F-49A8-8F15-1CCF2065238D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
