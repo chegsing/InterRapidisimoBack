@@ -273,8 +273,6 @@ ON dbo.StudentSubjects (SubjectId, StudentId);
 GO
 
 
-////////////////
-
 CREATE TRIGGER dbo.trg_Subjects_ValidateProfessorLimit
 ON dbo.Subjects
 AFTER INSERT, UPDATE
@@ -303,7 +301,6 @@ BEGIN
 END;
 GO
 
-///////////////
 CREATE TRIGGER dbo.trg_StudentSubjects_ValidateBusinessRules
 ON dbo.StudentSubjects
 AFTER INSERT, UPDATE
@@ -414,7 +411,6 @@ END;
 GO
 
 
-///////////////////
 
 CREATE TRIGGER dbo.trg_AcademicPrograms_UpdatedAt
 ON dbo.AcademicPrograms
@@ -476,7 +472,6 @@ BEGIN
 END;
 GO
 
-/////////
 
 INSERT INTO dbo.AcademicPrograms
 (
@@ -495,7 +490,6 @@ VALUES
 GO
 
 
-/////////////
 
 INSERT INTO dbo.Professors
 (
@@ -512,7 +506,6 @@ VALUES
 (N'P1005', N'Pedro', N'Torres',    N'pedro.torres@universidad.edu');
 GO
 
-////////////////
 
 INSERT INTO dbo.Subjects
 (
@@ -538,8 +531,6 @@ VALUES
 (N'SUB010', N'Computación en la Nube',      3, 5);
 GO
 
-
-////////////
 
 INSERT INTO dbo.Students
 (
@@ -593,9 +584,6 @@ VALUES
 );
 GO
 
-
-////////////////
-
 INSERT INTO dbo.StudentSubjects
 (
     StudentId,
@@ -626,4 +614,30 @@ VALUES
 (5, 2),
 (5, 4),
 (5, 10);
+GO
+
+
+   /* ========================================================
+       USUARIO:
+       CREACIÓN DE USUARIO DESARROLLO.
+       ======================================================== */
+USE [master];
+GO
+
+CREATE LOGIN [desarrollo]
+WITH PASSWORD = '1nt3rr4p1d1s1m0',
+     CHECK_POLICY = ON,
+     CHECK_EXPIRATION = OFF;
+GO
+
+USE [StudentRegistrationDB];
+GO
+
+CREATE USER [desarrollo] FOR LOGIN [desarrollo];
+GO
+
+GRANT SELECT, INSERT, UPDATE ON SCHEMA::dbo TO [desarrollo];
+GO
+
+GRANT EXECUTE ON SCHEMA::dbo TO [desarrollo];
 GO
